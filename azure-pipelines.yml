@@ -23,12 +23,11 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
 - script: |
-    echo "$(System.DefaultWorkingDirectory)"
-    echo "$(Build.ArtifactStagingDirectory)"
+    echo "$(System.DefaultWorkingDirectory) - $(Build.ArtifactStagingDirectory) - $(ArtifactLocation)"
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/target/'
     Contents: '$(ArtifactLocation)'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
