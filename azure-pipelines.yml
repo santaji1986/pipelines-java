@@ -28,7 +28,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)/target/'
-    Contents: '$(ArtifactLocation)'
+    Contents: '*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
