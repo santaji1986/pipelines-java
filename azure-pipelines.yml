@@ -22,6 +22,10 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+- script: |
+    echo "$(System.DefaultWorkingDirectory)"
+    echo "$(Build.ArtifactStagingDirectory)"
+
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
